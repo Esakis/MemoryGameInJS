@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Javascript Game</title>
+    <meta charset="UTF-8">
+    <!-- http://proger.i-forge.net/The_smallest_transparent_pixel/ -->
+    <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
+    <link rel="stylesheet" href="style.css">
+    <script src="game.js"></script>
+    <style> td, th { border: 2px solid black; } </style>
+  
+
+</head>
+<body  background="memory.jpg">
+    <div align="center" class="menu" >
+    <table style="width: 80%" align="center">
+        <tr> <th style =" height: 3em" colspan="2"> <h1>Memory Game</h1><h10>Designed by Artur, Michał, Łukasz </h10>
+
+    <tr> <th style="width: 25em"; margin="5%" class="menu2" >    
+    <div class="all">
+    <div class="game"> 
+        <div class="card" id="a"></div>
+        <div class="card" id="b"></div>
+        <div class="card" id="c"></div>
+        <div class="card"  id="d"></div>
+        <div class="card"  id="e"></div>
+        <div class="card"  id="f"></div>
+        <div class="card" id="g"></div>
+        <div class="card"  id="h"></div>
+        <div class="card"  id="i"></div>
+        <div class="card"  id="j"></div>
+        <div class="card"  id="k"></div>
+        <div class="card"  id="l"></div>
+    </div>
+
+    <td style="width: 20em"; margin="5%">
+    <div align="center" class="menu3" >
+        <table>
+               <tr> <th  colspan="2"> Game Menu
+               <tr> <th > Nick:      <td > <div id="Nick"></div>
+               <tr> <th > Round:     <td> <div id="clickCounter"></div>
+               <tr> <th > Left pair: <td> <div id="left"></div> 
+               <tr> <th > Score:     <td> <div id="Score"></div>
+         </table>
+    </div>
+</div>
+
+<tr> <th colspan="2">
+<div align="center" class="audio">
+    <button  class="button1" onclick="play(mainAudio)">Play Audio</button>
+    <button  class="button1" onclick="stopPlay(mainAudio)">Stop Audio</button>
+</div>
+
+</table>
+</div>
+
+</body>
+</html>
