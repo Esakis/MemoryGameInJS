@@ -3,46 +3,49 @@
     width: 100px;
     height: 100px;
     background-color: blue;
-    float: left;
     display: block;
     position: relative;
-    /* text-align: left; */
 }
 .game {
     display: grid;
     grid-template-columns: 100px 100px 100px;
     grid-gap: 10px;
-    grid-template-rows: 50px, 50px, 50px, 50px;
-    vertical-align: middle;
-    float:left;
+    grid-template-rows: 100px 100px 100px 100px;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
 }
 
 .menu {
- 
+  display: flex;
+  justify-content: center;
   align-items: center;
   background-color:rgb(1, 173, 53);
-  float:left;
-  margin-left: 25%;
+  margin: 0 auto;
+  width: fit-content;
 }
 
 .menu2 {
+  display: flex;
+  justify-content: center;
   align-items: center;
   background-color:rgb(245, 245, 245);
-  float:left;
 }
 
 .menu3 {
+  display: flex;
+  justify-content: center;
   align-items: center;
   background-color:rgb(165, 176, 235);
-  float:left;
-  margin-left: 25%;
 }
 
 .all {
+  display: flex;
+  justify-content: center;
   align-items: center;
   background-color:rgb(173, 161, 1);
-  float:none;
-  margin-left: 10%;
+  margin: 0 auto;
+  width: fit-content;
 }
 
 .audio {
@@ -94,14 +97,27 @@
   }
 
   .result {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    padding: 1em;
+    padding: 2em;
     border: 0.5em solid red;
-    width: 70%;
-    height: 70%;
-    border-radius: 100%;
-    position: absolute;
-    font-size: 3.0em;
+    width: 400px;
+    height: auto;
+    border-radius: 20px;
+    font-size: 2.0em;
     background-color:rgb(83, 158, 14);
-    vertical-align: middle;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  #replay {
+    text-align: center;
+    margin-top: 1em;
+  }
+
+  #replay button {
+    margin: 0 auto;
   }
