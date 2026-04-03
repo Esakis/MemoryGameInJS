@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(e) {
     generateCards();
+    updateHighScores();
     })
 
 
@@ -42,6 +43,7 @@ function makeInteractive(Nick) {
     let clickCounter = 0
     let currentCards = []
     let toGuess = nrOfCards/2
+    const playerName = Nick; // Store the player name separately
     pairs = generatePairs()
     let cards = document.getElementsByClassName('card');
     for(let i = 0; i < cards.length; i++) {
@@ -69,7 +71,7 @@ function makeInteractive(Nick) {
             console.log(currentCards)
 
             if(currentCards.length == 2) {
-                if (checkMatch(currentCards, rewersColor, toGuess, Score) == "x") {
+                if (checkMatch(currentCards, rewersColor, toGuess, Score, playerName) == "x") {
                     toGuess--
                 }
 
@@ -106,7 +108,7 @@ function makeInteractive(Nick) {
 //-------------------------Wynik--------------------------------
 
 
-function checkMatch(currentCards, rewersColor, toGuess, Score) {
+function checkMatch(currentCards, rewersColor, toGuess, Score, playerName) {
     if(currentCards[0].name == currentCards[1].name) {
         console.log("trafileś!")
         play(correct)
@@ -120,6 +122,7 @@ function checkMatch(currentCards, rewersColor, toGuess, Score) {
 
         if (toGuess <= 0) {
             console.log("brawo, wszystko odkryte")
+            addHighScore(playerName, Score);
             let result = document.createElement('div')
             result.id = "result"
             result.innerHTML = "<p>Congratulations, you won!</p>"
@@ -215,4 +218,37 @@ function restartGame() {
     
     // Start new game
     generateCards();
+}
+
+// High scores management
+function addHighScore(name, score) {
+    if (!window.highScores) {
+        window.highScores = [];
+    }
+    
+    window.highScores.push({ name: name, score: score });
+    
+    // Sort by score (highest first) and keep only top 3
+    window.highScores.sort((a, b) => b.score - a.score);
+    window.highScores = window.highScores.slice(0, 3);
+    
+    updateHighScores();
+}
+
+function updateHighScores() {
+    const scoresList = document.getElementById('highScoresList');
+    if (!scoresList) return;
+    
+    scoresList.innerHTML = '';
+    
+    if (!window.highScores || window.highScores.length === 0) {
+        scoresList.innerHTML = '<tr><td colspan="2">No scores yet</td></tr>';
+        return;
+    }
+    
+    window.highScores.forEach((score, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${index + 1}. ${score.name}</td><td>${score.score}</td>`;
+        scoresList.appendChild(row);
+    });
 }
