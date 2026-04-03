@@ -93,6 +93,7 @@ function makeInteractive(Nick) {
                 result.id = "result"
                 result.innerHTML = "<p>You lost.</p>"
                 result.innerHTML += "<p>Try again!</p>"
+                result.innerHTML += '<button class="button1" onclick="restartGame()">Try Again</button>'
                 result.className = 'result'
                 document.body.appendChild(result)
                 play(lost)
@@ -128,7 +129,7 @@ function checkMatch(currentCards, rewersColor, toGuess, Score) {
             result.className = 'result'
             let replay = document.createElement('div')
             replay.id = "replay"
-            // replay.innerHTML = "press here to play again"
+            replay.innerHTML = '<button class="button1" onclick="restartGame()">Play Again</button>'
             document.body.appendChild(result)
             document.body.appendChild(replay)
             play(win)
@@ -192,4 +193,27 @@ function generatePairs() {
         i++;
    }
    return pairs
+}
+
+function restartGame() {
+    // Remove result and replay elements if they exist
+    const resultElement = document.getElementById('result');
+    const replayElement = document.getElementById('replay');
+    if (resultElement) resultElement.remove();
+    if (replayElement) replayElement.remove();
+    
+    // Reset all cards
+    let cards = document.getElementsByClassName('card');
+    for(let i = 0; i < cards.length; i++) {
+        cards[i].style.backgroundColor = "blue";
+        cards[i].onclick = null;
+    }
+    
+    // Reset game displays
+    document.getElementById("clickCounter").innerHTML = "0";
+    document.getElementById("left").innerHTML = "6";
+    document.getElementById("Score").innerHTML = "0";
+    
+    // Start new game
+    generateCards();
 }
