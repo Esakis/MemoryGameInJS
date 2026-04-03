@@ -14,8 +14,10 @@ function generateCards() {
 }
 
 function introduce() {
-    let Nick = window.prompt("Enter your name please: ")
-    return Nick
+    if (!window.playerName) {
+        window.playerName = window.prompt("Enter your name please: ")
+    }
+    return window.playerName
 }
 
 const mainAudio = new Audio('Memory (Reprise) Cats the Musical.mp3')
@@ -52,17 +54,17 @@ function makeInteractive(Nick) {
             }
         
             if (pairs[0].some(isEqual)) 
-            card.style.backgroundColor = "red"
+            card.style.background = "linear-gradient(145deg, #ff6b6b, #ee5a24)"
             else if (pairs[1].some(isEqual))
-            card.style.backgroundColor = "yellow"
+            card.style.background = "linear-gradient(145deg, #ffd93d, #f39c12)"
             else if (pairs[2].some(isEqual))
-            card.style.backgroundColor = "black"
+            card.style.background = "linear-gradient(145deg, #6c5ce7, #5f3dc4)"
             else if (pairs[3].some(isEqual))
-            card.style.backgroundColor = "green"
+            card.style.background = "linear-gradient(145deg, #00b894, #00a085)"
             else if (pairs[4].some(isEqual))
-            card.style.backgroundColor = "grey"
+            card.style.background = "linear-gradient(145deg, #fd79a8, #e84393)"
             else if (pairs[5].some(isEqual))
-            card.style.backgroundColor = "pink"
+            card.style.background = "linear-gradient(145deg, #74b9ff, #0984e3)"
 
             console.log(currentCards)
 
@@ -111,8 +113,8 @@ function checkMatch(currentCards, rewersColor, toGuess, Score) {
         toGuess--;
         setTimeout(function() 
         {
-        currentCards[0].style.backgroundColor = "white"
-        currentCards[1].style.backgroundColor = "white"
+        currentCards[0].style.background = "linear-gradient(145deg, #ffffff, #f0f0f0)"
+        currentCards[1].style.background = "linear-gradient(145deg, #ffffff, #f0f0f0)"
         }, 500);
 
 
@@ -126,12 +128,9 @@ function checkMatch(currentCards, rewersColor, toGuess, Score) {
             if (Score > 25) { result.innerHTML += "<p>✰✰✰</p>"}
             else if (Score > 22) {result.innerHTML += "<p>✰✰</p>"}
             else if (Score > 20) {result.innerHTML += "<p>✰</p>"}
+            result.innerHTML += '<div id="replay"><button class="button1" onclick="restartGame()">Play Again</button></div>'
             result.className = 'result'
-            let replay = document.createElement('div')
-            replay.id = "replay"
-            replay.innerHTML = '<button class="button1" onclick="restartGame()">Play Again</button>'
             document.body.appendChild(result)
-            document.body.appendChild(replay)
             play(win)
         }
         else { 
@@ -141,8 +140,8 @@ function checkMatch(currentCards, rewersColor, toGuess, Score) {
     }
     else {
         setTimeout(function() {
-        currentCards[0].style.backgroundColor = rewersColor
-        currentCards[1].style.backgroundColor = rewersColor
+        currentCards[0].style.background = "linear-gradient(145deg, #2c3e50, #34495e)"
+        currentCards[1].style.background = "linear-gradient(145deg, #2c3e50, #34495e)"
             }, 500);
         play(wrong)     
     }
@@ -205,7 +204,7 @@ function restartGame() {
     // Reset all cards
     let cards = document.getElementsByClassName('card');
     for(let i = 0; i < cards.length; i++) {
-        cards[i].style.backgroundColor = "blue";
+        cards[i].style.background = "linear-gradient(145deg, #2c3e50, #34495e)";
         cards[i].onclick = null;
     }
     

@@ -1,80 +1,109 @@
 .card {
-
     width: 100px;
     height: 100px;
-    background-color: blue;
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    border: 2px solid #1a252f;
+    border-radius: 10px;
     display: block;
     position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    background: linear-gradient(145deg, #34495e, #2c3e50);
+}
+
 .game {
     display: grid;
     grid-template-columns: 100px 100px 100px;
-    grid-gap: 10px;
+    grid-gap: 15px;
     grid-template-rows: 100px 100px 100px 100px;
     justify-content: center;
-    margin: 0 auto;
+    margin: 20px auto;
     width: fit-content;
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
 }
 
 .menu {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:rgb(1, 173, 53);
+  background: linear-gradient(135deg, rgba(1, 173, 53, 0.9), rgba(34, 197, 94, 0.9));
   margin: 0 auto;
   width: fit-content;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
 .menu2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:rgb(245, 245, 245);
+  background: linear-gradient(135deg, rgba(245, 245, 245, 0.95), rgba(255, 255, 255, 0.95));
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 
 .menu3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:rgb(165, 176, 235);
+  background: linear-gradient(135deg, rgba(165, 176, 235, 0.95), rgba(200, 210, 255, 0.95));
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 
 .all {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:rgb(173, 161, 1);
+  background: linear-gradient(135deg, rgba(173, 161, 1, 0.8), rgba(200, 180, 50, 0.8));
   margin: 0 auto;
   width: fit-content;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
 .audio {
   align-items: center;
   background-color:rgb(173, 161, 1);
   float: none;
-
 }
 
 .button1 {
-  background-color: lightsteelblue;
-  color: darkblue;
-  border: 2px solid #008CBA;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
   height: 40px;
   width: 120px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
 .button1:hover {
-  background-color: #008CBA;
-  color: white;
-  height: 40px;
-  width: 120px;
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
-
 
 #a {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-  }
+}
   #b {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
